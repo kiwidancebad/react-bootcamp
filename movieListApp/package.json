@@ -7,28 +7,41 @@
     "start": "webpack-dev-server --open --hot",
     "build": "webpack --mode production",
     "prettier": "npx prettier --write 'src/**/*.(ts|tsx|js|jsx)'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier"
+      "pre-commit": "npm run prettier",
+      "pre-push": "npm run test"
     }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.9",
+    "@types/mocha": "^8.0.1",
+    "@types/node": "^14.0.27",
     "@types/react": "^16.9.45",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.2",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^4.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-to-json": "^3.5.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
+    "jest": "^26.2.2",
     "mini-css-extract-plugin": "^0.9.0",
     "pretty-quick": "^2.0.1",
     "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.13.1",
     "source-map-loader": "^1.0.1",
+    "ts-jest": "^26.1.4",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
@@ -38,5 +51,22 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/index.js"
+    ],
+    "coverageReporters": [
+      "text"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ]
   }
 }
