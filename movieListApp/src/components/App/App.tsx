@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import theme from '../../themes';
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import theme from "../../themes";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
